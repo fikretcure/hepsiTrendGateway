@@ -30,4 +30,9 @@ class AuthController extends Controller
     {
         return $this->authService->login();
     }
+
+    public function checkToken(): JsonResponse
+    {
+        return $this->authService->checkToken();
+    }
 }

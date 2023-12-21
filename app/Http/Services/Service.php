@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Http;
 class Service
 {
     /**
-     * @var
+     * @var String
      */
-    public $baseUrl;
+    public string $baseUrl;
 
     /**
      * @param string $method
@@ -23,8 +23,7 @@ class Service
     public function send(string $method = 'get', $path = null): JsonResponse
     {
         $path = $path ?? request()->path();
-        $response = Http::accept('application/json')->{$method}($this->baseUrl . $path);
+        $response = Http::accept('application/json')->{$method}($this->baseUrl . $path, request()->all());
         return response()->json($response->json(), $response->status());
-
     }
 }
