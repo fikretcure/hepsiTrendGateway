@@ -21,6 +21,7 @@ class AuthMiddleware
         $auth = (new AuthService())->checkToken();
 
         if (isset($auth->original['status'])) {
+            $request->headers->set('X-USER-ID', $auth->original['user']['id']);
             return $next($request);
         }
         return $auth;
