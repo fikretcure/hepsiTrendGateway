@@ -31,7 +31,7 @@ class AuthService extends Service
      */
     public function checkToken(): JsonResponse
     {
-        return $this->send(method: 'post');
+        return $this->send(method: 'post', path: 'api/auth/check-token');
     }
 
 }

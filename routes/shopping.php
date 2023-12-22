@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
+use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('products',ProductController::class);
+Route::middleware(AuthMiddleware::class)->group(function () {
+    Route::apiResource('products',ProductController::class);
+});
