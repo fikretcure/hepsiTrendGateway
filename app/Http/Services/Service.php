@@ -20,9 +20,10 @@ class Service
      * @param $path
      * @return JsonResponse
      */
-    public function send(string $method = 'get', $path = null): JsonResponse
+    public function send(string $method = null, $path = null): JsonResponse
     {
         $path = $path ?? request()->path();
+        $method = $method ?? request()->getMethod();
         $response = Http::withHeaders([
             'X-USER-ID' => request()->header('X-USER-ID'),
         ])->withToken(request()->bearerToken())->accept('application/json')->{$method}($this->baseUrl . $path, request()->all());
