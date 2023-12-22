@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -17,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(AuthMiddleware::class)->group(function () {
     Route::apiResource('products',ProductController::class);
+    Route::apiResource('categories',CategoryController::class);
 });
