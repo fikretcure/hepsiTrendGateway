@@ -69,4 +69,38 @@ class OrderController extends Controller
     {
         return $this->shoppingService->send();
     }
+
+    /**
+     * @return JsonResponse
+     */
+    public function basket(): JsonResponse
+    {
+        return $this->shoppingService->send();
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function increasingQuantityProduct(): JsonResponse
+    {
+        return $this->shoppingService->send();
+    }
+
+
+    /**
+     * @return JsonResponse
+     */
+    public function decrementQuantityProduct(): JsonResponse
+    {
+        return $this->shoppingService->send();
+    }
+
+
+    /**
+     * @return JsonResponse
+     */
+    public function removeProduct(): JsonResponse
+    {
+        return $this->shoppingService->send();
+    }
 }
