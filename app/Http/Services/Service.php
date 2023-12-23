@@ -15,12 +15,13 @@ class Service
      */
     public string $baseUrl;
 
+
     /**
-     * @param string $method
-     * @param $path
+     * @param string|null $method
+     * @param string|null $path
      * @return JsonResponse
      */
-    public function send(string $method = null, $path = null): JsonResponse
+    public function send(string $method = null,string $path = null): JsonResponse
     {
         $path = $path ?? request()->path();
         $method = $method ?? request()->getMethod();
