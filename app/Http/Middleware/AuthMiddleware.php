@@ -20,8 +20,9 @@ class AuthMiddleware
     {
         $auth = (new AuthService())->checkToken();
 
-        if (isset($auth->original['status'])) {
-            $request->headers->set('X-USER-ID', $auth->original['user']['id']);
+        if (isset($auth->original['data']['status'])) {
+            $request->headers->set('X-USER-ID', $auth->original['data']['user']['id']);
+            $request->headers->set('X-USER-EMAIL', $auth->original['data']['user']['email']);
             return $next($request);
         }
         return $auth;

@@ -26,6 +26,7 @@ class Service
         $method = $method ?? request()->getMethod();
         $response = Http::withHeaders([
             'X-USER-ID' => request()->header('X-USER-ID'),
+            'X-USER-EMAIL' => request()->header('X-USER-EMAIL'),
         ])->withToken(request()->bearerToken())->accept('application/json')->{$method}($this->baseUrl . $path, request()->all());
         return response()->json($response->json(), $response->status());
     }
