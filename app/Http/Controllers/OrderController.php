@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Enums\RolesEnum;
 use App\Http\Services\ShoppingService;
 use Illuminate\Http\JsonResponse;
 
@@ -22,6 +23,7 @@ class OrderController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('role:' . RolesEnum::ADMIN->value)->only(['store', 'update', 'destroy']);
         $this->shoppingService = new ShoppingService();
     }
 
