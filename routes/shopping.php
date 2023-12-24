@@ -27,6 +27,8 @@ Route::middleware(AuthMiddleware::class)->group(function () {
         Route::put('decrement-quantity-product', 'decrementQuantityProduct')->name('decrementQuantityProduct');
         Route::delete('remove-product', 'removeProduct')->name('removeProduct');
     });
+
+    Route::post('orders/payment', [OrderController::class, 'payment']);
     Route::apiResource('orders', OrderController::class);
     Route::post('upload', [FileController::class, 'upload']);
 });
