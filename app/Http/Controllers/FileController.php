@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Services\ShoppingService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 /**
  *
@@ -25,10 +26,12 @@ class FileController extends Controller
 
 
     /**
+     * @param Request $request
      * @return JsonResponse
      */
-    public function upload(): JsonResponse
+    public function upload(Request $request): JsonResponse
     {
-        return $this->shoppingService->send();
+        $path = $request->file('file')->store('public/file');
+        return $this->shoppingService->send(method: null, path: null, file_path: storage_path().'/app/'.$path);
     }
 }
