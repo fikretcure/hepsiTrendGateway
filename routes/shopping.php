@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Middleware\AuthMiddleware;
@@ -27,4 +28,5 @@ Route::middleware(AuthMiddleware::class)->group(function () {
         Route::delete('remove-product', 'removeProduct')->name('removeProduct');
     });
     Route::apiResource('orders', OrderController::class);
+    Route::post('upload', [FileController::class, 'upload']);
 });
