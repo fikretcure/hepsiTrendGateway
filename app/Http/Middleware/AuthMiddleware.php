@@ -23,6 +23,7 @@ class AuthMiddleware
         if (isset($auth->original['data']['status'])) {
             $request->headers->set('X-USER-ID', $auth->original['data']['user']['id']);
             $request->headers->set('X-USER-EMAIL', $auth->original['data']['user']['email']);
+            $request->headers->set('X-USER-ROLES', collect( $auth->original['data']['user']['roles']));
             return $next($request);
         }
         return $auth;
