@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use App\Enums\RolesEnum;
 use App\Http\Services\IyzicoService;
 use App\Http\Services\ShoppingService;
-use http\Env\Response;
 use Illuminate\Http\JsonResponse;
 
 /**
