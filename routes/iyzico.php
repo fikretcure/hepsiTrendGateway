@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\OrderController;
+use App\Http\Middleware\AuthMiddleware;
+use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -14,3 +17,6 @@
 */
 
 
+Route::middleware(AuthMiddleware::class)->group(function () {
+    Route::post('payment', [OrderController::class,'iyzicoPayment']);
+});
