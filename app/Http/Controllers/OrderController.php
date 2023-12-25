@@ -130,4 +130,12 @@ class OrderController extends Controller
     {
         return $this->iyzicoService->send(method: 'post', path: 'api/payment', file_path: null);
     }
+
+    /**
+     * @return JsonResponse
+     */
+    public function changeSuccesful(): JsonResponse
+    {
+        return $this->shoppingService->send();
+    }
 }

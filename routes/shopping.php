@@ -31,4 +31,6 @@ Route::middleware(AuthMiddleware::class)->group(function () {
     Route::post('orders/payment', [OrderController::class, 'payment']);
     Route::apiResource('orders', OrderController::class);
     Route::post('upload', [FileController::class, 'upload']);
+
+    Route::put('order-items/change-succesful/{id}', [OrderController::class, 'changeSuccesful']);
 });
