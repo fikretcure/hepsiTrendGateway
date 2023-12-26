@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Middleware\AuthMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(AuthMiddleware::class)->group(function () {
     Route::apiResource('invoices', InvoiceController::class);
+    Route::post('failed-service', [NotificationController::class, 'failedService']);
 });
