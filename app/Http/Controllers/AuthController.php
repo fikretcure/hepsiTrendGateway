@@ -31,8 +31,19 @@ class AuthController extends Controller
         return $this->authService->login();
     }
 
+    /**
+     * @return JsonResponse
+     */
     public function checkToken(): JsonResponse
     {
         return $this->authService->checkToken();
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function logout(): JsonResponse
+    {
+        return $this->authService->send();
     }
 }
