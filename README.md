@@ -46,7 +46,7 @@
 
 
 ### Step - 5 Gateway Service ./hepsitrend/
-- git clone https://github.com/fikretcure/hepsiTrendAuth.git
+- git clone https://github.com/fikretcure/hepsiTrendGateway.git
 - cp .env.example .env
 - composer install
 - php artisan key:generate
