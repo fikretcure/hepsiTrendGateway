@@ -50,4 +50,4 @@
 - cp .env.example .env
 - composer install
 - php artisan key:generate
-- php artisan serve --port=8008
+- php artisan serve --port=8009
